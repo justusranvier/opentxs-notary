@@ -30,7 +30,9 @@ auto main(int argc, char* argv[]) -> int
     opentxs::init_terminate_handler();
     auto const& log = opentxs::LogTrace();
 
-    if (false == read_options(argc, argv)) { return 1; }
+    if (false == read_options(argc, argv)) {
+        return 1;
+    }
 
     auto const options = process_arguments(argc, argv);
 
