@@ -7,6 +7,7 @@
 #include <opentxs/opentxs.hpp>
 
 namespace po = boost::program_options;
+using namespace opentxs::literals;
 
 constexpr auto help_arg_ = "help";
 constexpr auto only_init_arg_ = "only_init";
@@ -50,7 +51,13 @@ auto main(int argc, char* argv[]) -> int
 
     opentxs::api::Context::PrepareSignalHandling();
     auto const& ot = opentxs::start(log, options.args_);
-    ot.StartNotarySession(options.args_, 0);
+    auto const params =
+        opentxs::crypto::Parameters::QBIP32()
+            .SetNymVersion(7_version)
+            .SetSeedStyle(opentxs::crypto::hd::seed::Style::Quantum)
+            .SetSeedStrength(opentxs::crypto::hd::seed::Strength::Thirty)
+            .SetPaymentCodeAssignments({});
+    ot.StartNotarySession(options.args_, params, 0);
 
     if (options.only_init_) {
         opentxs::shutdown(log);
