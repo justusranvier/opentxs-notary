@@ -4,5 +4,5 @@ ARG RUNTIME="${OPENTXS_RUNTIME}:${OPENTXS_VERSION}"
 
 FROM ${RUNTIME} AS run
 COPY --from=compile /opt/notary /usr
-ENTRYPOINT [ "/usr/bin/opentxs-notary", "--ot_home=/srv/opentxs-notary" ]
+ENTRYPOINT [ "/usr/bin/opentxs-notary", "--ot_home=/srv/opentxs-notary/data", "--ot_config_directory=/srv/opentxs-notary/config" ]
 CMD []
