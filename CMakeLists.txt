@@ -71,7 +71,7 @@ endif()
 include(opentxs-notary-configure-target)
 otcommon_set_project_language_standard(
   99
-  20
+  23
   ${OPENTXS_NOTARY_PEDANTIC_BUILD}
 )
 
@@ -86,7 +86,7 @@ opentxs_notary_print_build_details()
 
 find_package(
   opentxs
-  1.246.0
+  1.269.0
   CONFIG
   REQUIRED
 )
