@@ -4,7 +4,8 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 #include <boost/program_options.hpp>
-#include <opentxs/opentxs.hpp>
+
+#include "notary/external/opentxs.hpp"
 
 namespace po = boost::program_options;
 using namespace opentxs::literals;
